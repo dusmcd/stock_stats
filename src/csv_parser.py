@@ -2,13 +2,17 @@ import os
 from stock import Stock
 
 class CSVParser:
-    def __init__(self, src_directory):
+    def __init__(self, src_directory=None, csv_text=None):
         self.__csv = None
         self.__stock_data = {}
         self.__src_dir = src_directory
         self.__stock_data_clean = {}
-        self.__fetch()
-        self.__parse_stock_data()
+        if self.__src_dir:
+            self.__fetch()
+            self.__parse_stock_data()
+        else:
+            self.__stock_data["Test"] = csv_text
+            self.__parse_stock_data()
 
     def __fetch(self):
         for item in os.listdir(self.__src_dir):
@@ -27,7 +31,7 @@ class CSVParser:
         for stock in self.__stock_data:
             csv_string = self.__stock_data[stock]
             lines = csv_string.split("\n")
-            stock_info = Stock()
+            stock_info = Stock(stock)
             heading_map = {}
             for i in range(len(lines)):
                 data_points = lines[i].split(",")
@@ -41,3 +45,4 @@ class CSVParser:
                     data_point = float(data_points[j]) if j != 0 else data_points[j]
                     stock_info.set_data(heading_map[j], data_point)
             self.__stock_data_clean[stock] = stock_info
+
