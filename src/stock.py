@@ -1,30 +1,28 @@
 class Stock:
     def __init__(self, ticker):
-        self.__dates = []
-        self.__opens = []
-        self.__highs = []
-        self.__lows = []
-        self.__closes = []
-        self.__adj_closes = []
-        self.__volumes = [] 
-        self.__heading_map = {
-            "Date": self.__dates,
-            "Open": self.__opens,
-            "High": self.__highs,
-            "Low": self.__lows,
-            "Close": self.__closes,
-            "Adj Close": self.__adj_closes,
-            "Volume": self.__volumes
+        self.__information = {
+            "Date": [],
+            "Open": [],
+            "High": [],
+            "Low": [],
+            "Close": [],
+            "Adj Close": [],
+            "Volume": []
         }
         self.ticker = ticker
 
     def set_data(self, heading, data_point):
-        self.__heading_map[heading].append(data_point)
+        self.__information[heading].append(data_point)
 
-    def rate_of_return(self, pv, fv, periods):
+    def rate_of_return(self, periods):
+        pv = self.__information["Close"][0]
+        fv = self.__information["Close"][-1]
         return ((fv/ pv) ** (1 / periods)) - 1
+    
+    def get_number_of_periods(self):
+        return len(self.__information["Date"]) - 1
 
     def __repr__(self):
-        return str(self.__heading_map)
+        return str(self.__information)
 
     

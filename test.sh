@@ -1,1 +1,1 @@
-python ./src/test_csvparser.py
+python -m unittest discover -s src

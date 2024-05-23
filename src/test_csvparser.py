@@ -13,7 +13,19 @@ test_cases = [
           "Close": [52.0],
           "Adj Close": [12.0],
           "Volume": [45450.0]
-      }))
+      })),
+      ("Date,Open,High,Low,Close,Adj Close,Volume\n" +
+       "2024-06-21, 21, 21, 21, 21, 21, 2000\n" +
+       "2024-06-22, 22, 22, 22, 22, 22, 3000",
+       str({
+           "Date": ["2024-06-21", "2024-06-22"],
+           "Open": [21.0, 22.0],
+           "High": [21.0, 22.0],
+           "Low": [21.0, 22.0],
+           "Close": [21.0, 22.0],
+           "Adj Close": [21.0, 22.0],
+           "Volume": [2000.0, 3000.0]
+       }))
 ]
 class TestCSVParser(unittest.TestCase):
     def test_parser(self):
