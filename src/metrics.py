@@ -1,3 +1,4 @@
+
 QUARTER = "quarters"
 DAY = "days"
 YEAR = "years"
@@ -18,3 +19,6 @@ def get_annual_returns(stock_data, reporting_period):
         annual_return = round(raw_rate * multiplier_map[reporting_period], 4)
         annual_returns[stock] = annual_return
     return annual_returns
+
+def get_time_periods(stock):
+    dates = stock.get_dates()

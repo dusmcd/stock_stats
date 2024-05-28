@@ -3,7 +3,6 @@ from stock import Stock
 
 class CSVParser:
     def __init__(self, src_directory=None, csv_text=None):
-        self.__csv = None
         self.__stock_data = {}
         self.__src_dir = src_directory
         self.__stock_data_clean = {}

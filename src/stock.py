@@ -14,6 +14,9 @@ class Stock:
     def set_data(self, heading, data_point):
         self.__information[heading].append(data_point)
 
+    def get_dates(self):
+        return self.__information["Date"]
+
     def rate_of_return(self, periods):
         pv = self.__information["Close"][0]
         fv = self.__information["Close"][-1]
