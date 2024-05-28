@@ -3,7 +3,7 @@ corresponding ticker symbols and annualized returns.
 
 # Instructions
 
-1. In the roof of the project create an ```inputs``` directory
+1. In the root of the project create an ```inputs``` directory
 2. In this newly-created directory, place as many CSV files as you want (see **File Format** section below)
 3. In the root directory, execute the following command: ```./main.sh``` (You may need to add executable executable permissions with ```chmod +x```)
 
