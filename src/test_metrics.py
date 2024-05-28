@@ -34,7 +34,7 @@ class TestMetrics(unittest.TestCase):
         for test_case in test_cases:
             expected_value = test_case[1]
             stock_data = CSVParser(csv_text=test_case[0]).get_clean_data()
-            actual_value = get_annual_returns(stock_data, test_case[2])
+            actual_value = get_annual_returns(stock_data)
             self.assertEqual(expected_value, actual_value)
 
 

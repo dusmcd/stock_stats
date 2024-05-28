@@ -43,6 +43,11 @@ class Date:
             self.__date_string += f"-{day}"
         
         return Date(self.__date_string)
+    
+    def subtract_months(self, other):
+        if self.year != other.year:
+            return other.month + 12 - self.month
+        return other.month - self.month
 
     def __add__(self, number):
         current_date = self
@@ -55,3 +60,8 @@ class Date:
     
     def __repr__(self):
         return self.__date_string
+    
+    def __eq__(self, other):
+        if self.year == other.year and self.month == other.month and self.day == other.day:
+            return True
+        return False
