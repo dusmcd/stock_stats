@@ -9,7 +9,7 @@ corresponding ticker symbols and annualized returns.
 
 ## File Format
 
-The required format follows the format used in [!Yahoo Finance](https://finance.yahoo.com/quote/MSFT/history)
+The required format follows the format used in [Yahoo Finance](https://finance.yahoo.com/quote/MSFT/history)
 The following columns (date type) are required:
 - Date (date)
 - Open (number)
