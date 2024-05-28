@@ -17,7 +17,7 @@ def get_annual_returns(stock_data):
     for stock in stock_data:
         periods = stock_data[stock].get_number_of_periods()
         if periods < 1:
-            raise Exception("You need more at least two dates to calculate returns")
+            raise Exception("You need at least two dates to calculate returns")
         raw_rate = stock_data[stock].rate_of_return(periods)
         reporting_period = get_time_periods(stock_data[stock])
         annual_return = round(raw_rate * multiplier_map[reporting_period], 4)
